@@ -8,6 +8,8 @@ if not os.environ.get("OPENAI_API_KEY"):
 if not os.environ.get("SERPER_API_KEY"):
     os.environ["SERPER_API_KEY"] = st.secrets["serper_api_key"]
 
+if not os.environ.get("ANTHROPIC_API_KEY"):
+    os.environ["ANTHROPIC_API_KEY"] = st.secrets["anthropic_api_key"]
 
 st.title("Content Factory")
 

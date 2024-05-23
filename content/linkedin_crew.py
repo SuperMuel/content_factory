@@ -1,7 +1,15 @@
 from crewai import Crew
+from langchain_anthropic import ChatAnthropic
+from langchain_openai import ChatOpenAI
+
 from content.agents import Agents
 from content.tasks import Tasks
 
+gpt3_5 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.2)  # type: ignore
+gpt4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
+
+claude_haiku = ChatAnthropic(model_name="claude-3-haiku-20240307")
+claude_sonnet = ChatAnthropic(model_name="claude-3-sonnet-20240229")
 
 class LinkedinCrew:
     def __init__(self, subject):
@@ -9,7 +17,7 @@ class LinkedinCrew:
 
     def run(self):
         # Initialize custom agents and tasks
-        agents = Agents()
+        agents = Agents(llm=claude_haiku)
         tasks = Tasks(
             agents.search_tool,
             agents.news_researcher(),
@@ -40,8 +48,7 @@ class LinkedinCrew:
         )
 
         # Kick off the crew with the specified subject
-        result = crew.kickoff(inputs={"subject": self.subject})
-        return result
+        return crew.kickoff(inputs={"subject": self.subject})
 
 
 # This is the main function that you will use to run your custom crew.

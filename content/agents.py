@@ -1,12 +1,11 @@
 from crewai import Agent
 from crewai_tools import SerperDevTool
-from langchain_openai import ChatOpenAI
 
 
 class Agents:
-    def __init__(self):
-        self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.2)  # type: ignore
-        # self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
+    def __init__(self, llm):
+        self.llm = llm
+
         self.search_tool = SerperDevTool(
             search_url="https://google.serper.dev/news",
             n_results=5,
@@ -23,7 +22,7 @@ class Agents:
             allow_delegation=False,
             verbose=True,
             memory=True,
-            llm=self.OpenAIGPT35,
+            llm=self.llm,
         )
 
     def content_evaluator(self):
@@ -35,7 +34,7 @@ class Agents:
             allow_delegation=False,
             verbose=True,
             memory=True,
-            llm=self.OpenAIGPT35,
+            llm=self.llm,
         )
 
     def summarizer(self):
@@ -47,7 +46,8 @@ class Agents:
             allow_delegation=False,
             verbose=True,
             memory=True,
-            llm=self.OpenAIGPT35,
+            llm=self.llm,
+
         )
 
     def social_media_writer(self):
@@ -59,7 +59,7 @@ class Agents:
             allow_delegation=False,
             verbose=True,
             memory=True,
-            llm=self.OpenAIGPT35,
+            llm=self.llm,
         )
 
     def content_verifier(self):
@@ -71,5 +71,5 @@ class Agents:
             allow_delegation=False,
             verbose=True,
             memory=True,
-            llm=self.OpenAIGPT35,
+            llm=self.llm,
         )

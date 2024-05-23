@@ -56,7 +56,7 @@ class Tasks:
             description=(
                 "Verify that the LinkedIn post does not contain any forbidden terms. "
                 "If forbidden terms are found, rewrite the post to adhere to the guidelines. "
-                f"Here are the forbidden terms: \n {FORBIDDEN_TERMS}"
+                f"Here are the forbidden terms: {'\n- '.join(FORBIDDEN_TERMS)}"
             ),
             expected_output="A verified and possibly revised LinkedIn post.",
             tools=[],
