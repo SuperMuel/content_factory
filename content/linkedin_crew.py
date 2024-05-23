@@ -12,8 +12,9 @@ claude_haiku = ChatAnthropic(model_name="claude-3-haiku-20240307")
 claude_sonnet = ChatAnthropic(model_name="claude-3-sonnet-20240229")
 
 class LinkedinCrew:
-    def __init__(self, subject):
+    def __init__(self, subject, language="EN"):
         self.subject = subject
+        self.language = language
 
     def run(self):
         # Initialize custom agents and tasks
@@ -40,7 +41,7 @@ class LinkedinCrew:
                 agents.news_researcher(),
                 agents.content_evaluator(),
                 agents.summarizer(),
-                agents.social_media_writer(),
+                agents.social_media_writer(llm=claude_sonnet),
                 agents.content_verifier(),
             ],
             tasks=[search_task, compare_task, summarize_task, write_task, verify_task],
@@ -48,7 +49,7 @@ class LinkedinCrew:
         )
 
         # Kick off the crew with the specified subject
-        return crew.kickoff(inputs={"subject": self.subject})
+        return crew.kickoff(inputs={"subject": self.subject, "language": self.language})
 
 
 # This is the main function that you will use to run your custom crew.

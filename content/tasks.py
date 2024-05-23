@@ -44,7 +44,8 @@ class Tasks:
         return Task(
             description=(
                 "Summarize the top 3 selected news articles. "
-                "Each summary should be concise and capture the key points of the article, as well as interesting insights, quotes or facts."
+                "Each summary should be concise and capture the key points of the article, as well as interesting "
+                "insights, quotes or facts."
             ),
             expected_output="Summaries of the top 3 news articles.",
             tools=[],
@@ -56,9 +57,10 @@ class Tasks:
             description=(
                 "Verify that the LinkedIn post does not contain any forbidden terms. "
                 "If forbidden terms are found, rewrite the post to adhere to the guidelines. "
-                f"Here are the forbidden terms: {'\n- '.join(FORBIDDEN_TERMS)}"
+                f"Here are the forbidden terms: {'\n- '.join(FORBIDDEN_TERMS)}\n"
             ),
-            expected_output="A verified and possibly revised LinkedIn post.",
+            expected_output="A verified and possibly revised LinkedIn post. Only the post, nothing else, "
+                            "no explanations.",
             tools=[],
             agent=self.content_verifier,
         )
@@ -67,9 +69,13 @@ class Tasks:
         return Task(
             description=(
                 "Generate a LinkedIn post based on the summarized news articles. "
-                "The post should be professional, engaging, and suitable for a LinkedIn audience."
+                "The post should be natural, engaging, and suitable for a LinkedIn audience."
+                "The user wants a 300-words post in the {language} language."
+                "Include 2 or 3 hashtags related to the topic."
+
             ),
-            expected_output="A LinkedIn post ready for publishing.",
+            expected_output="A LinkedIn post ready for publishing. Maximum of 3 emojis. No title, no explanation, "
+                            "just the content.",
             tools=[],
             agent=self.social_media_writer,
         )

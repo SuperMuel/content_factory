@@ -1,5 +1,6 @@
 FORBIDDEN_TERMS = [
     "as we continue to push...",
+    "as [...] continues to evolve"
     "it's crucial to...",
     "delve",
     "Tapestry",
@@ -38,4 +39,6 @@ FORBIDDEN_TERMS = [
     "In the dynamic world of",
     "A treasure trove of",
     "As we venture",
+
+    "Cela soulève des [questions|interrogations]..."
 ]
