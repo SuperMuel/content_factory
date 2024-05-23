@@ -8,8 +8,9 @@ class Agents:
         self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.2)  # type: ignore
         # self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
         self.search_tool = SerperDevTool(
+            search_url="https://google.serper.dev/news",
+            n_results=5,
             # TODO : localize the search
-            # TODO : only search Google News
         )
 
     def news_researcher(self):
