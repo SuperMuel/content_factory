@@ -11,6 +11,7 @@ if not os.environ.get("SERPER_API_KEY"):
 
 st.title("Content Factory")
 
+
 topic = st.text_input("Enter the topic of the post")
 
 if clicked := st.button("Generate a Linkedin Post"):

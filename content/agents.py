@@ -10,7 +10,8 @@ class Agents:
         self.search_tool = SerperDevTool(
             search_url="https://google.serper.dev/news",
             n_results=5,
-            # TODO : localize the search
+            locale="fr",
+            country="France",
         )
 
     def news_researcher(self):
