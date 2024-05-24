@@ -9,15 +9,15 @@ class Tasks:
         news_researcher,
         content_evaluator,
         summarizer,
-        content_verifier,
         social_media_writer,
+        content_verifier,
     ):
         self.search_tool = search_tool
         self.news_researcher = news_researcher
         self.content_evaluator = content_evaluator
         self.summarizer = summarizer
-        self.content_verifier = content_verifier
         self.social_media_writer = social_media_writer
+        self.content_verifier = content_verifier
 
     def search_task(self, subject):
         return Task(

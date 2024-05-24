@@ -20,12 +20,12 @@ class LinkedinCrew:
         # Initialize custom agents and tasks
         agents = Agents(llm=claude_haiku)
         tasks = Tasks(
-            agents.search_tool,
-            agents.news_researcher(),
-            agents.content_evaluator(),
-            agents.summarizer(),
-            agents.content_verifier(),
-            agents.social_media_writer(),
+            search_tool=agents.search_tool,
+            news_researcher=agents.news_researcher(),
+            content_evaluator=agents.content_evaluator(),
+            summarizer=agents.summarizer(),
+            content_verifier=agents.content_verifier(),
+            social_media_writer=agents.social_media_writer(),
         )
 
         # Define tasks with relevant agents

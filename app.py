@@ -29,7 +29,8 @@ if clicked := st.button("Generate a Linkedin Post"):
         result = linkedin_crew.run()
 
     st.subheader("Generated LinkedIn Post")
-    st.write(result)
+
+    st.code(result, language="markdown")
 
 
 # To show output in an expander : https://github.com/amadad/civic-agentcy/blob/main/src/civic_agentcy/crew.py
