@@ -94,8 +94,10 @@ Alors, qu'est-ce que tu attends pour essayer cette nouvelle fonctionnalité et v
         return Agent(
             role="Content Verifier",
             backstory="You are meticulous and have a keen eye for detail, ensuring that the content adheres to "
-                      "specified guidelines.",
-            goal="Ensure the LinkedIn post does not contain forbidden terms and rewrite it if necessary",
+                      "specified guidelines."
+                      "You speak perfectly the {language} language.",
+            goal="Ensure the LinkedIn post does not contain forbidden terms and rewrite it if necessary, using the "
+                 "same language.",
             tools=[],
             allow_delegation=False,
             verbose=True,

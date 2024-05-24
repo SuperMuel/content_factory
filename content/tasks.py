@@ -58,9 +58,10 @@ class Tasks:
                 "Verify that the LinkedIn post does not contain any forbidden terms. "
                 "If forbidden terms are found, rewrite the post to adhere to the guidelines. "
                 f"Here are the forbidden terms: {'\n- '.join(FORBIDDEN_TERMS)}\n"
+                "The post should be in the {language} language."
             ),
-            expected_output="A verified and possibly revised LinkedIn post. Only the post, nothing else, "
-                            "no explanations.",
+            expected_output="A verified and possibly revised LinkedIn post in the {language} language."
+                            "Only the post, nothing else, no explanations.",
             tools=[],
             agent=self.content_verifier,
         )
