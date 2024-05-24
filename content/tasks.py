@@ -60,6 +60,7 @@ class Tasks:
                 f"Here are the forbidden terms: {'\n- '.join(FORBIDDEN_TERMS)}\n"
                 "The post should be in the {language} language."
                 "A minimum of 2 and a maximum of 3 emojis should be included in the post."
+                "The hashtags should be located at the end of the post only."
             ),
             expected_output="A verified and possibly revised LinkedIn post in the {language} language."
                             "Only the post, nothing else, no explanations.",
@@ -73,7 +74,7 @@ class Tasks:
                 "Generate a LinkedIn post based on the summarized news articles. "
                 "The post should be natural, engaging, and suitable for a LinkedIn audience."
                 "The user wants a 300-words post in the {language} language."
-                "Include 2 or 3 hashtags related to the topic."
+                "Include 2 or 3 hashtags related to the topic at the end."
                 "Include between 2 and 3 emojis related to the topic."
 
             ),
