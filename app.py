@@ -1,5 +1,4 @@
 import streamlit as st
-from content.linkedin_crew import LinkedinCrew
 import os
 
 if not os.environ.get("OPENAI_API_KEY"):
@@ -10,6 +9,8 @@ if not os.environ.get("SERPER_API_KEY"):
 
 if not os.environ.get("ANTHROPIC_API_KEY"):
     os.environ["ANTHROPIC_API_KEY"] = st.secrets["anthropic_api_key"]
+
+from content.linkedin_crew import LinkedinCrew
 
 st.title("Content Factory")
 
