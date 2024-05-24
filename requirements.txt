@@ -1,3 +1,6 @@
 streamlit
 crewai[tools]
 langchain-anthropic
+
+# This is only necessary for linux, on Streamlit's servers
+pysqlite3-binary
