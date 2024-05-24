@@ -20,12 +20,16 @@ language = st.selectbox(
     ["EN","FR"],
 )
 
-topic = st.text_input("Enter the topic of the post")
+topic = st.text_input("Enter the topic of the post", placeholder="GPT4o")
 
 if clicked := st.button("Generate a Linkedin Post"):
+
     with st.spinner("Generating content..."):
-        linkedin_crew = LinkedinCrew(subject=topic, language=language)
+        linkedin_crew = LinkedinCrew(subject=topic, language=language) #TODO handle error
         result = linkedin_crew.run()
 
     st.subheader("Generated LinkedIn Post")
     st.write(result)
+
+
+# To show output in an expander : https://github.com/amadad/civic-agentcy/blob/main/src/civic_agentcy/crew.py
