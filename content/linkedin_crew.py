@@ -1,3 +1,5 @@
+from typing import Optional
+
 from crewai import Crew
 from langchain_anthropic import ChatAnthropic
 from langchain_openai import ChatOpenAI
@@ -11,10 +13,12 @@ gpt4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
 claude_haiku = ChatAnthropic(model_name="claude-3-haiku-20240307")
 claude_sonnet = ChatAnthropic(model_name="claude-3-sonnet-20240229")
 
+
 class LinkedinCrew:
-    def __init__(self, subject, language="EN"):
+    def __init__(self, subject: str, language: str = "EN", example_linkedin_posts: Optional[str] = None):
         self.subject = subject
         self.language = language
+        self.example_linkedin_posts = example_linkedin_posts
 
     def run(self):
         # Initialize custom agents and tasks
@@ -26,6 +30,7 @@ class LinkedinCrew:
             summarizer=agents.summarizer(),
             content_verifier=agents.content_verifier(),
             social_media_writer=agents.social_media_writer(),
+            example_linkedin_posts=self.example_linkedin_posts,
         )
 
         # Define tasks with relevant agents
